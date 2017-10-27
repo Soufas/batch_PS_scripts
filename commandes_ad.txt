@@ -1,3 +1,4 @@
+nltest /dclist:gr0vsdma  (check domain DCs)
 netdom query fsmo
 
 remote PS:

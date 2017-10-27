@@ -1,0 +1,16 @@
+netdom query fsmo
+
+remote PS:
+Server config:
+Enable-PSRemoting -Force
+Clisent side:
+Test-WsMan COMPUTER
+Enter-PSSession -ComputerName COMPUTER -Credential USER
+
+
+rem http://jdhitsolutions.com/blog/wp-content/uploads/2012/06/GroupPolicy_Reporting_Analysis_with_PowerShell.pdf
+import-module grouppolicy
+get-gpo -all ,get-gpo default_domain
+get-gpo -all|where {$_.modificationtime -gt (get.date).addays(30)} | sort modificationtime -Descending|select displayname,modificationtime,description|export-csv C:\gporeportmonth.csv
+get-gporeport -all -reporttype html -path c:\allgpo.html
+

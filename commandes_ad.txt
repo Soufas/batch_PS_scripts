@@ -15,3 +15,17 @@ get-gpo -all ,get-gpo default_domain
 get-gpo -all|where {$_.modificationtime -gt (get.date).addays(30)} | sort modificationtime -Descending|select displayname,modificationtime,description|export-csv C:\gporeportmonth.csv
 get-gporeport -all -reporttype html -path c:\allgpo.html
 
+Windows DC adding to an existing domain:
+https://www.youtube.com/watch?v=D2tLXotZX9Q  (adding dc to a domain) .
+https://www.youtube.com/watch?v=i43ZWNYoSBk
+
+TRansfer FSMO roles:
+https://www.youtube.com/watch?v=iWT4Yx4RmGg
+
+order Schema > Domain naming > PDC emulator > RID master > Infrasturcture
+
+
+Check operating systems AD:
+Link: https://blogs.technet.microsoft.com/askds/2010/02/04/inventorying-computers-with-ad-powershell/
+command: Get-ADComputer -Filter * -Property * | Format-Table Name,OperatingSystem,OperatingSystemServicePack,OperatingSystemVersion |findstr 2008
+https://support.microsoft.com/en-us/lifecycle/search?sort=PN&alpha=Windows%20Server%202008&Filter=FilterNO (check lifecycle)

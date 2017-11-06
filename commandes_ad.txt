@@ -1,5 +1,6 @@
 nltest /dclist:gr0vsdma  (check domain DCs)
 netdom query fsmo
+repadmin /showrepl
 
 remote PS:
 Server config:

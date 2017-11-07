@@ -9,6 +9,7 @@ Clisent side:
 Test-WsMan COMPUTER
 Enter-PSSession -ComputerName COMPUTER -Credential USER
 
+Get-Content D:\Users\seifkaro\Desktop\hosts.txt | Foreach-Object {(nmap -sP $_ |findstr "report Host") -join ';' }
 
 rem http://jdhitsolutions.com/blog/wp-content/uploads/2012/06/GroupPolicy_Reporting_Analysis_with_PowerShell.pdf
 import-module grouppolicy

@@ -1,0 +1,10 @@
+for /f "tokens=2 delims=," %%i in ('wmic os get version') do set os=%%i
+if %os%==10.0.14393 (
+net stop wuauserv
+timeout 15
+del /q C:\Windows\SoftwareDistribution\*
+timeout 15
+for /d %%x in (C:\Windows\SoftwareDistribution\*) do @rd /s /q "%%x"
+timeout 15
+net start wuauserv
+)

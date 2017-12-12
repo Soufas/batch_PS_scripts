@@ -1,3 +1,4 @@
+Get-Process notepad++ | Select-Object Path
 nltest /dclist:gr0vsdma  (check domain DCs)
 netdom query fsmo
 repadmin /showrepl
